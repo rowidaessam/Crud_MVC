@@ -1,0 +1,77 @@
+﻿@*@model StudentIndexViewModel*@
+@*@model IEnumerable<Student>*@
+@model List<StudentController>
+
+@{
+   Layout = "Layout2" ;
+    ViewBag.Title = "Student List";
+
+
+}
+
+
+   
+    <table class="table">
+        <div  class="form-group d-grid gap-2 col-2">
+               <a href="/home/create" class=" btn btn-outline-secondary btn-lg"> add new</a>
+   @*            <a asp-action="create" asp-controller="Home" class="btn btn-outline-secondary btn-lg">Create</a>*@ @*tag helber*@
+        </div>
+     <br /><br />
+        <form>
+        
+        @*<input type="text" name="searchText" value="@Model.TextToSearch" />*@
+        @*<input type="text" name="searchText" value="@ViewBag.text" />*@
+      
+                 <div class="row g-2">
+                  <div class="col-lg">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="floatingInputGrid"  name="searchText" value="@ViewBag.text" />
+                    </div>
+                  </div>
+                  <div class="col-lg">
+                    <div class="form-floating">
+                      <select class="form-select" value="5" id="floatingSelectGrid" name="num">
+                         <option > Select All</option>
+                          <option value="2">2</option>
+                          <option value="5">5</option>
+                      </select>
+                    </div>
+                  </div>
+                </div><br />
+                <div class="d-grid gap-2 col-2 mx-auto">
+              <input type="submit" class=" btn btn-outline-secondary btn-lg" value="search" />
+              </div>
+        </form>
+        <br /><br />
+        <thead class="bg-secondary text-light">
+           <tr>
+               <td>student id</td>
+               <td>student name</td>
+               <td>student age</td>
+               <td>student delete</td>
+               <td>student details</td>
+               <td>student update</td>
+               @*<td>Student Image</td>*@
+           </tr>
+        </thead>
+         @foreach(var item in Model ){
+         @*@foreach(var item in Model.students ){*@
+            <tr>
+                <td>@item.id</td>
+                <td>@item.name</td>
+                <td>@item.age</td> 
+                @*<td>@item.formFile</td>*@
+                @*<td>< style="width:150px" src=@item.formFile.Name/></td>*@
+               @* <td><a href="/home/delete/@item.id" class="btn btn-danger "> delete</a></td>
+                <td><a href="/home/details/@item.id" class="btn btn-warning "> details</a></td>
+                <td><a href="/home/update/@item.id" class="btn btn btn-info ">update</a></td>*@
+
+                @*@Html.ActionLink()  ==> self study*@
+                @*<td><a asp-action="delete" onclick="return confirm('Are You Sure You Wanna Delete That?')" asp-controller="Home" asp-route-id="@item.id" class="btn btn-danger "> delete</a></td>*@
+                <td><a asp-action="delete"  asp-controller="Home" asp-route-id="@item.id" class="btn btn-danger "> delete</a></td>
+                <td><a asp-action="details" asp-controller="Home" asp-route-id="@item.id" class="btn btn-warning "> details</a></td>
+                <td><a asp-action="update"  asp-controller="Home" asp-route-id="@item.id" class="btn btn btn-info ">update</a></td>
+
+            </tr>
+            }
+    </table>

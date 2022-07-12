@@ -1,0 +1,41 @@
+﻿@model StudentController
+@{
+    Layout = "Layout2" ;
+    ViewBag.Title = "Create";
+
+}
+
+   <div  >
+   <a href="/Home/Index" class="form-group d-grid gap-2 col-2 btn btn-outline "> 
+   <button type="submit"  class="  btn btn-outline-secondary btn-lg">back</button>
+   </a>
+   </div>
+    
+    <form method="post" action="/home/create" enctype="multipart/form-data">
+       
+  <div class="form-group">
+    <label asp-for="id" for="exampleInputPassword1"  class="form-label">Student ID</label>
+    @*<input  class="form-control" name="id" placeholder="student id">*@
+     <input  class="form-control" asp-for="id" placeholder="student id" />  @*tag helper*@
+  </div>
+  <div class="form-group">
+    <label asp-for="name" for="exampleInputPassword1" class="form-label">Student Name</label>
+    @*<input  class="form-control" name="name" placeholder="name">*@
+    <input  class="form-control" asp-for="name" placeholder="student name" />
+  </div>
+   <div class="form-group">
+    <label asp-for="age" for="exampleInputPassword1" class="form-label">Student Age</label>
+    @*<input  class="form-control" name="age" placeholder="age">*@
+    <input  class="form-control" asp-for="age" placeholder="student age" />
+
+  </div>
+  <div class="form-group">
+  <label for="formFile" class="form-label">student image</label>
+  <input class="form-control" type="file" name="formFile">
+</div><br /><br />
+<div class="form-group d-grid gap-2 col-3 mx-auto">
+  <button type="submit"  class=" btn btn-outline-secondary btn-lg">Submit</button>
+  </div>
+
+</form>
+

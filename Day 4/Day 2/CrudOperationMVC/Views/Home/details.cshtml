@@ -1,0 +1,22 @@
+﻿@model StudentController
+@{
+     Layout = "Layout2" ;
+    ViewBag.Title = "Details";
+
+
+}
+
+
+    <div class="card" style="width: 18rem;margin-top:30px ">
+  <div class="card-body">
+    <h4 class="card-title">student details</h4><br />
+    <h6 class="card-subtitle mb-2 text-muted">Student ID : @Model.id</h6>
+    <h6  class="card-subtitle mb-2 text-muted">Student Name : @Model.name</h6>
+     <h6   class="card-subtitle mb-2 text-muted">Student Age : @Model.age</h6>
+    <div class="d-grid gap-2 d-md-block">
+    <a href="/Home/Index" class="btn btn-dark "> Back</a>
+    <a href="/Home/update" class="btn btn-secondary "> Edit</a>
+  </div>
+  
+  </div>
+</div>
